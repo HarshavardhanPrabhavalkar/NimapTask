@@ -1,0 +1,194 @@
+<section class="sec">
+  <nav class="navbar navbar-expand-sm ">
+    <div class="container">
+      <a class="navbar-brand bg-light" href="#">DEMO APP</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="background-color: white;"><i class="fa fa-bars"></i></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav  mb-2 mb-lg-0  ms-auto text-light">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">ABOUT US </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">CONTACT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">JOB</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link ">CLIENT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ">EMPLOYE</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+  <div class="look text-light container ">
+
+    <div>
+      <p class="heading"> I'm Looking for ... </p>
+    </div>
+  </div>
+
+  <div class="col-lg-12 d-flex">
+    <div class="row container">
+      <div class="col-lg-8">
+        <input type="text" class="input form-control" placeholder="Enter a Job Description">
+      </div>
+      <div class="col-lg-4 btnn">
+        <button type="search" id="search" class="btn btn-primary  ms-auto"> Search <i class="fa fa-search"></i></button>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="form-check mt-5 check1">
+      <input class="form-check-input ms-4" type="checkbox" value="" id="flexCheckIndeterminate">
+      <label class="form-check-label ms-3 text-light" for="flexCheckIndeterminate">
+        Full Time
+      </label>
+    </div>
+    <div class="form-check mt-5 check2">
+      <input class="form-check-input ms-4" type="checkbox" value="" id="flexCheckIndeterminate">
+      <label class="form-check-label ms-1 text-light" for="flexCheckIndeterminate">
+        Part Time/Casual/Freelance
+      </label>
+
+    </div>
+    <div id="select">
+      <select name="" id="drop" class="ms-5 mt-5">
+        <option value="">Search Your Location</option>
+        <option value="">Kolhapur</option>
+        <option value="">Pune</option>
+        <option value="">Mumbai</option>
+
+      </select>
+    </div>
+
+  </div>
+  <div>
+    <div class="text-center mt-5">
+      <button type="button" id="rege" class="btn btn-primary me-auto " data-bs-toggle="modal"
+        data-bs-target="#myModal">Register</button>
+    </div>
+
+    <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Register </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="data" (ngSubmit)="submit(data.value)">
+              <input for="image" type="hidden" formControlName="image" />
+              <div class="col-lg-12 d-flex">
+                <div class="col-lg-4 ">
+                  <!-- <input type="file" accept="image/*" (change)="handleUpload($event)" id="image"> -->
+                  <img src="{{ imagepath }}" alt="" style="width:90px ;">
+
+                  <label for="upload-photo">Upload a image</label>
+                  <input type="file" name="photo" id="upload-photo" (change)="handleUpload($event)" required />
+                </div>
+                <div class="col-lg-8">
+                  <div>
+                    <label class="form-label">First Name</label>
+                    <input type="text" class="form-control" formControlName="firstName" required>
+                  </div>
+                  <div>
+                    <label class="form-label">Last Name</label>
+                    <input type="text" class="form-control" formControlName="lastName" required>
+                  </div>
+                  <div>
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" formControlName="email" required>
+                    <span *ngIf="data.controls.email.invalid && data.controls.email.touched">Please enter valid email</span>
+                  </div>
+                  <div>
+                    <label class="form-label">City</label>
+                    <input type="text" class="form-control" formControlName="city" required>
+                  </div>
+                  <div>
+                    <label class="form-label">Address</label>
+                    <input type="text" class="form-control" formControlName="address" required>
+                  </div>
+                  <div>
+                    <label class="form-label">Type your message here</label>
+                    <textarea class="form-control" formControlName="msg" required></textarea>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-danger">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="mysec">
+  <div class="container">
+    <div class="lead">
+
+      <div class="creative text-center pt-5"> <b> We're Leaders <br> Creative Digital Recruitment </b>
+      </div>
+      <div class="  ">
+        <hr class="line">
+
+      </div>
+      <h6 class="text-center mt-5">Lorem ipsum dolor sit amet consectetur<br> adipisicing elit. Ad, consequatur laborum
+        molestiae voluptatum,
+        voluptatem autem iure
+      </h6>
+      <div class="text-center mt-5 ">
+        <button class="btn btn-outline-primary ">Find Out More About Us !</button>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="subscription">
+  <div class="text-center mydiv">
+    <h6 class="text-light">Subscribe To Our Job Seeker Mailing List </h6>
+    <div class="text-center mt-5">
+      <button class="btn btn-outline-primary ">Enter Your Email Address<i class="fa fa-envelope" buttn></i> </button>
+    </div>
+  </div>
+</section>
+
+<section class="footer">
+  <div class="container">
+    <div class="col-lg-12 d-flex">
+      <div class="col-lg-9">
+        <div class="text-primary" id="email">
+          <i class="fa fa-envelope ico"></i> <input type="text" name="" id="focs" class="in"><br><br>
+          <h6> © Copyright@ 2014 Two Byts Counslting Terms And Policies</h6>
+        </div>
+      </div>
+
+      <div class="col-lg-3 icon">
+        <button class="btn btn-primary"><i class="fa fa-twitter"></i> Twitt</button>
+        <button class="btn btn-primary" id="icons"><i class="fa fa-facebook"></i> Like</button>
+      </div>
+
+
+    </div>
+  </div>
+</section>

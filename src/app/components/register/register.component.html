@@ -1,0 +1,125 @@
+<div class="container mt-5">
+  <div style="width:60% ;">
+    <button class="btn btn-primary" id="left-btn" routerLink="/" ><i class="bi bi-arrow-left-circle-fill"></i></button>
+    <div class="card">
+      <div class="col-lg-12 d-flex ">
+        <div class="col-lg-3">
+          <img src="{{data.image}}" alt="" style="height:400px; width: 300px;">
+        </div>
+
+      <div class="col-lg-9 pt-5" style="padding-left:20% ;">
+
+      <pre>
+        It's my pleasure to speak with you.
+        I am <b>{{data.firstName}} {{data.lastName}}</b>.I belong to<b> {{data.city}}</b>.
+        I have been living in <b>{{data.address}} </b>.
+        I stay here with my family. Besides
+        my parents,there is a
+        younger brother.
+
+          <b>Email : </b> {{data.email}} <br>
+          <b>Massage : </b> {{data.msg}} <br>
+      </pre>
+      </div>
+      </div>
+    </div>
+
+    <div class="">
+
+
+      <div>
+        <div class="text-center editbtn">
+          <button class="btn btn-warning me-2" id="rege"  data-bs-toggle="modal" data-bs-target="#myModalnew"> Edit Photo</button>
+          <button type="button" id="rege" class="btn btn-primary me-auto " data-bs-toggle="modal"
+            data-bs-target="#myModal">Edit Data</button>
+        </div>
+
+
+
+        <div class="modal" id="myModal" >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">UpdateData </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                <form [formGroup]="formdata" (ngSubmit)="submit(formdata.value)">
+                  <!-- <input for="image" type="hidden" name="image" formControlName="image" /> -->
+                  <!-- <input type="text" name="id" formControlName="id" > -->
+
+                  <div class="col-lg-12" >
+
+                    <div class="col-lg-8">
+
+                      <div>
+                        <label class="form-label">First Name</label>
+                        <input type="text" class="form-control" name="firstName" formControlName="firstName">
+                      </div>
+                      <div>
+                        <label class="form-label">Last Name</label>
+                        <input type="text" class="form-control" name="lastName"  formControlName="lastName">
+                      </div>
+                      <div>
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" name="email" formControlName="email">
+                      </div>
+                      <div>
+                        <label class="form-label">City</label>
+                        <input type="text" class="form-control" name="city" formControlName="city">
+                      </div>
+                      <div>
+                        <label class="form-label">Address</label>
+                        <input type="text" class="form-control" name="address" formControlName="address">
+                      </div>
+                      <div>
+                        <label class="form-label">Type your message here</label>
+                        <textarea class="form-control" name="msg" formControlName="msg"></textarea>
+                      </div>
+
+                      <div class="modal-footer">
+                        <a href=""><button type="submit" class="btn btn-primary">Submit</button></a>
+                        <button type="button" class="btn btn-danger">Cancel</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="modal" id="myModalnew" >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">UpdateData </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                <form [formGroup]="formdata" (ngSubmit)="imgsubmit(formdata.value)">
+                  <div class="col-lg-4 ">
+                    <!-- <input type="file" accept="image/*" (change)="handleUpload($event)" id="image"> -->
+                    <img src="{{ imagepath }}" alt="" style="width:90px ;">
+
+                    <label for="upload-photo">Upload a image</label>
+                    <input type="file" name="photo" id="upload-photo" (change)="handleUpload($event)"  />
+
+                    <a href=""><button type="submit" class="btn btn-primary">Submit</button></a>
+                  </div>
+                </form>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
